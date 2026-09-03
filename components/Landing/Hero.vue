@@ -21,8 +21,6 @@ const stats = [
 
 		<div class="g-container landing-hero__inner">
 			<figure class="landing-hero__photo">
-				<span class="g-tape landing-hero__photo-tape landing-hero__photo-tape--tl" />
-				<span class="g-tape landing-hero__photo-tape landing-hero__photo-tape--br" />
 				<img
 					class="landing-hero__photo-img"
 					src="/avatar.webp"
@@ -152,25 +150,6 @@ const stats = [
 		font-size: 0.8rem;
 		letter-spacing: .5px;
 		color: $text-dim;
-	}
-
-	.landing-hero__photo-tape
-	{
-		z-index: 3;
-	}
-
-	.landing-hero__photo-tape--tl
-	{
-		top: -12px;
-		left: -22px;
-		transform: rotate(-24deg);
-	}
-
-	.landing-hero__photo-tape--br
-	{
-		right: -20px;
-		bottom: 24px;
-		transform: rotate(-18deg);
 	}
 
 	.landing-hero__body
