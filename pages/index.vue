@@ -35,6 +35,6 @@ useHead({
 <style lang="scss">
 	.page-index
 	{
-		background-color: $black;
+		background-color: $bg;
 	}
 </style>

@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700&display=swap');
+
 // helpers (_variables.scss + _mixins.scss) injected globally via nuxt.config additionalData
 
+@import "base/theme";
 @import "base/normalize";
 @import "base/typography";
 @import "base/global";

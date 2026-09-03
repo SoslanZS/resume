@@ -1,19 +1,21 @@
-// main colors
-$main: #ffd600;
-$black: #0a0a12;
-$ink: #12121f;
-$paper: #f4f0e4;
+// Colour tokens live in _theme.scss as CSS custom properties (light + dark).
+// SCSS colour vars below just proxy them so component styles stay terse.
 
-// spider-verse accents
-$magenta: #ff2e88;
-$cyan: #17e6f0;
-$violet: #7b2ff7;
-$red: #ff1744;
-$white: #ffffff;
+$bg        : var(--c-bg);
+$surface   : var(--c-surface);
+$surface-2 : var(--c-surface-2);
+$line      : var(--c-line);
+$text      : var(--c-text);
+$text-dim  : var(--c-text-dim);
 
-// text
-$text: #f4f0e4;
-$text-muted: #b8b4c8;
+$accent    : var(--c-accent);
+$accent-ink: var(--c-accent-ink);
+$accent-2  : var(--c-accent-2);
+$accent-3  : var(--c-accent-3);
+
+$shadow    : var(--c-shadow);
+$overlay   : var(--c-overlay);
+$hairline  : var(--c-hairline);
 
 /* Разрешения */
 $mobile : 480px;
@@ -23,4 +25,4 @@ $desktop: 1280px;
 
 // misc
 $radius: 4px;
-$border: 3px solid $black;
+$border: 3px solid var(--c-line);

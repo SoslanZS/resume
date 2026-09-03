@@ -21,8 +21,8 @@ const tagLabel = {
 		:class="`landing-project-card--${project.tag}`"
 	>
 		<div class="landing-project-card__top">
-			<span class="landing-project-card__sound g-sound">{{ project.sound }}</span>
 			<span class="landing-project-card__badge">{{ tagLabel[project.tag] }}</span>
+			<span class="landing-project-card__sound g-sound">{{ project.sound }}</span>
 		</div>
 
 		<h3 class="landing-project-card__title">
@@ -64,17 +64,17 @@ const tagLabel = {
 		display: flex;
 		flex-direction: column;
 		padding: 24px;
-		background-color: $ink;
-		border: 4px solid $black;
-		box-shadow: 10px 10px 0 $black;
+		background-color: $surface;
+		border: 2px solid $line;
+		box-shadow: 8px 8px 0 $shadow;
 		@include transition();
 
-		&:hover { transform: translate(-3px, -3px); box-shadow: 14px 14px 0 $black; }
+		&:hover { transform: translate(-3px, -3px); box-shadow: 12px 12px 0 $shadow; }
 	}
 
-	.landing-project-card--lead { border-top: 10px solid $main; }
-	.landing-project-card--landing { border-top: 10px solid $cyan; }
-	.landing-project-card--support { border-top: 10px solid $magenta; }
+	.landing-project-card--lead { border-top: 7px solid $accent; }
+	.landing-project-card--landing { border-top: 7px solid $accent-2; }
+	.landing-project-card--support { border-top: 7px solid $accent-3; }
 
 	.landing-project-card__top
 	{
@@ -82,13 +82,12 @@ const tagLabel = {
 		align-items: center;
 		justify-content: space-between;
 		gap: 12px;
-		margin-bottom: 10px;
+		margin-bottom: 8px;
 	}
 
 	.landing-project-card__sound
 	{
-		font-size: 30px;
-		transform: rotate(-5deg);
+		font-size: 26px;
 	}
 
 	.landing-project-card__badge
@@ -96,20 +95,20 @@ const tagLabel = {
 		padding: 4px 10px;
 		font-family: var(--font-display);
 		font-size: 11px;
-		letter-spacing: 1px;
+		letter-spacing: .8px;
 		text-transform: uppercase;
-		color: $paper;
-		border: 2px solid $text-muted;
+		color: $text-dim;
+		border: 1px solid $text-dim;
 	}
 
 	.landing-project-card__title
 	{
-		font-size: 40px;
-		color: $white;
+		font-size: 36px;
+		color: $text;
 
 		@include mq($tablet)
 		{
-			font-size: 48px;
+			font-size: 44px;
 		}
 	}
 
@@ -117,17 +116,17 @@ const tagLabel = {
 	{
 		margin-top: 4px;
 		font-family: var(--font-display);
-		font-size: 15px;
-		letter-spacing: 1px;
+		font-size: 14px;
+		letter-spacing: .8px;
 		text-transform: uppercase;
-		color: $main;
+		color: $accent;
 	}
 
 	.landing-project-card__summary
 	{
 		margin-top: 12px;
 		font-weight: 600;
-		color: $paper;
+		color: $text;
 	}
 
 	.landing-project-card__stack
@@ -146,9 +145,9 @@ const tagLabel = {
 		font-size: 12px;
 		font-weight: 700;
 		text-transform: uppercase;
-		letter-spacing: .5px;
-		color: $cyan;
-		border: 2px solid rgba($cyan, .5);
+		letter-spacing: .4px;
+		color: $accent-2;
+		border: 1px solid $accent-2;
 	}
 
 	.landing-project-card__points
@@ -161,10 +160,10 @@ const tagLabel = {
 	.landing-project-card__point
 	{
 		position: relative;
-		padding: 6px 0 6px 22px;
+		padding: 7px 0 7px 20px;
 		font-size: 14px;
-		color: $text-muted;
-		border-top: 1px dashed rgba($white, .12);
+		color: $text-dim;
+		border-top: 1px solid $hairline;
 	}
 
 	.landing-project-card__point::before
@@ -172,10 +171,9 @@ const tagLabel = {
 		content: "";
 		position: absolute;
 		left: 0;
-		top: 12px;
-		width: 10px;
-		height: 10px;
-		background-color: $magenta;
-		border: 2px solid $black;
+		top: 13px;
+		width: 8px;
+		height: 8px;
+		background-color: $accent-3;
 	}
 </style>

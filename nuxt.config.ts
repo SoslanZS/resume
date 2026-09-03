@@ -3,6 +3,17 @@ export default defineNuxtConfig({
 	compatibilityDate: '2024-04-03',
 	devtools: { enabled: true },
 	css: ['reset-css/reset.css', '~/assets/scss/main.scss'],
+	app: {
+		head: {
+			script: [
+				{
+					// ставим тему до первой отрисовки, чтобы не было мигания
+					innerHTML: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}document.documentElement.dataset.theme=t;}catch(e){}})();`,
+					tagPosition: 'head',
+				},
+			],
+		},
+	},
 	modules: ['shadcn-nuxt', '@nuxtjs/tailwindcss', '@pinia/nuxt', '@nuxt/eslint', '@vee-validate/nuxt'],
 	veeValidate: {
 		autoImports: true,

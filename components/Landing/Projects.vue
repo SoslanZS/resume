@@ -67,10 +67,8 @@ const visibleProjects = computed(() =>
 <style lang="scss">
 	.landing-projects
 	{
-		background-color: $black;
-		background-image: radial-gradient(rgba($white, .04) 1.5px, transparent 1.6px);
-		background-size: 22px 22px;
-		border-bottom: 6px solid $black;
+		background-color: $surface-2;
+		border-bottom: 3px solid $line;
 	}
 
 	.landing-projects__inner
@@ -81,23 +79,21 @@ const visibleProjects = computed(() =>
 
 	.landing-projects__title
 	{
-		font-size: 48px;
-		color: $main;
-		-webkit-text-stroke: 2px $black;
-		@include glitch-text($magenta, $cyan);
+		font-size: 44px;
+		color: $text;
 
 		@include mq($tablet)
 		{
-			font-size: 92px;
+			font-size: 84px;
 		}
 	}
 
 	.landing-projects__lead
 	{
 		max-width: 620px;
-		margin: 16px 0 0;
+		margin: 14px 0 0;
 		font-weight: 600;
-		color: $text-muted;
+		color: $text-dim;
 	}
 
 	.landing-projects__filters
@@ -105,37 +101,36 @@ const visibleProjects = computed(() =>
 		display: flex;
 		flex-wrap: wrap;
 		gap: 10px;
-		margin: 30px 0 0;
+		margin: 28px 0 0;
 	}
 
 	.landing-projects__filter
 	{
-		padding: 10px 18px;
+		padding: 9px 17px;
 		font-family: var(--font-display);
-		font-size: 15px;
-		letter-spacing: 1px;
+		font-size: 14px;
+		letter-spacing: .8px;
 		text-transform: uppercase;
-		color: $white;
+		color: $text;
 		background-color: transparent;
-		border: 3px solid $white;
+		border: 2px solid $line;
 		cursor: pointer;
 		@include transition();
 
-		&:hover { background-color: rgba($white, .12); }
+		&:hover { background-color: $overlay; }
 	}
 
 	.landing-projects__filter--active
 	{
-		color: $black;
-		background-color: $main;
-		border-color: $black;
+		color: $accent-ink;
+		background-color: $accent;
 	}
 
 	.landing-projects__grid
 	{
 		display: grid;
-		gap: 26px;
-		margin-top: 36px;
+		gap: 24px;
+		margin-top: 34px;
 
 		@include mq($tablet)
 		{

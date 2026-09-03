@@ -26,14 +26,14 @@ const copyEmail = async () =>
 		class="landing-contact g-section"
 	>
 		<div class="g-dots" />
-		<span class="landing-contact__sound g-sound">BAM!</span>
+		<span class="landing-contact__sound g-sound">BAM</span>
 
 		<div class="g-container landing-contact__inner">
 			<h2 class="landing-contact__title">
 				Нужен фронт?
 			</h2>
 			<p class="landing-contact__text">
-				Vue 3 / Nuxt, Bitrix и злая оптимизация PageSpeed. Пишите.
+				Vue 3 / Nuxt, Bitrix и оптимизация PageSpeed. Пишите.
 			</p>
 
 			<div class="landing-contact__actions">
@@ -62,7 +62,7 @@ const copyEmail = async () =>
 
 		<footer class="landing-contact__footer">
 			<span>{{ person.name }} · {{ person.role }}</span>
-			<span>Свёрстано на Nuxt · стилистика Spider-Verse</span>
+			<span>{{ person.email }}</span>
 		</footer>
 	</section>
 </template>
@@ -72,8 +72,7 @@ const copyEmail = async () =>
 	{
 		position: relative;
 		overflow: hidden;
-		background-color: $cyan;
-		background-image: linear-gradient(200deg, $cyan, $violet);
+		background-image: linear-gradient(200deg, var(--c-contact-from), var(--c-contact-to));
 	}
 
 	.landing-contact__inner
@@ -84,27 +83,26 @@ const copyEmail = async () =>
 
 	.landing-contact__title
 	{
-		font-size: 56px;
-		color: $black;
-		@include glitch-text($magenta, $white);
+		font-size: 48px;
+		color: $text;
 
 		@include mq($tablet)
 		{
-			font-size: 120px;
+			font-size: 104px;
 		}
 	}
 
 	.landing-contact__text
 	{
 		max-width: 520px;
-		margin: 20px 0 0;
-		font-size: 18px;
-		font-weight: 700;
-		color: $ink;
+		margin: 18px 0 0;
+		font-size: 17px;
+		font-weight: 600;
+		color: $text;
 
 		@include mq($tablet)
 		{
-			font-size: 22px;
+			font-size: 20px;
 		}
 	}
 
@@ -112,31 +110,31 @@ const copyEmail = async () =>
 	{
 		display: flex;
 		flex-wrap: wrap;
-		gap: 14px;
-		margin-top: 34px;
+		gap: 12px;
+		margin-top: 32px;
 	}
 
 	.landing-contact__btn
 	{
-		padding: 15px 24px;
+		padding: 13px 22px;
 		font-family: var(--font-display);
-		font-size: 16px;
-		letter-spacing: 1px;
+		font-size: 15px;
+		letter-spacing: .8px;
 		text-transform: uppercase;
-		color: $white;
-		background-color: $black;
-		border: 3px solid $black;
-		box-shadow: 6px 6px 0 rgba($black, .45);
+		color: $text;
+		background-color: $surface;
+		border: 2px solid $line;
+		box-shadow: 5px 5px 0 $shadow;
 		cursor: pointer;
 		@include transition();
 
-		&:hover { transform: translate(-2px, -2px); box-shadow: 9px 9px 0 rgba($black, .45); }
+		&:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 $shadow; }
 	}
 
 	.landing-contact__btn--primary
 	{
-		color: $black;
-		background-color: $main;
+		color: $accent-ink;
+		background-color: $accent;
 	}
 
 	.landing-contact__footer
@@ -148,27 +146,26 @@ const copyEmail = async () =>
 		gap: 8px 24px;
 		justify-content: space-between;
 		max-width: 1180px;
-		margin: 80px auto 0;
-		padding: 20px;
+		margin: 72px auto 0;
+		padding: 18px 20px 0;
 		font-size: 13px;
-		font-weight: 700;
+		font-weight: 600;
 		text-transform: uppercase;
-		letter-spacing: 1px;
-		color: $ink;
-		border-top: 3px solid $black;
+		letter-spacing: .8px;
+		color: $text-dim;
+		border-top: 2px solid $line;
 	}
 
 	.landing-contact__sound
 	{
 		position: absolute;
-		right: 6%;
-		top: 30px;
-		font-size: 60px;
-		transform: rotate(7deg);
+		right: 4%;
+		top: 24px;
+		font-size: 68px;
 
 		@include mq($tablet)
 		{
-			font-size: 120px;
+			font-size: 128px;
 		}
 	}
 </style>

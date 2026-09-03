@@ -2,7 +2,7 @@
 
 **Frontend-разработчик**
 
-Email: revaz.bolataev2003@gmail.com
+Email: soslanzs28@gmail.com
 _(контактные данные проверьте и при необходимости поправьте)_
 
 ---

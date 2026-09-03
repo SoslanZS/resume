@@ -14,8 +14,6 @@ const stats = [
 <template>
 	<header class="landing-hero">
 		<div class="g-dots" />
-		<span class="landing-hero__blob landing-hero__blob--one" />
-		<span class="landing-hero__blob landing-hero__blob--two" />
 
 		<div class="g-container landing-hero__inner">
 			<p class="landing-hero__kicker">
@@ -67,7 +65,7 @@ const stats = [
 			</ul>
 		</div>
 
-		<span class="landing-hero__sound g-sound">THWIP!</span>
+		<span class="landing-hero__sound g-sound">THWIP</span>
 	</header>
 </template>
 
@@ -76,16 +74,13 @@ const stats = [
 	{
 		position: relative;
 		overflow: hidden;
-		padding: 90px 0 60px;
-		background-color: $violet;
-		background-image:
-			linear-gradient(135deg, rgba($magenta, .55), rgba($violet, .1) 45%, rgba($cyan, .4)),
-			linear-gradient($ink, $ink);
-		border-bottom: 6px solid $black;
+		padding: 72px 0 56px;
+		background-image: linear-gradient(150deg, var(--c-hero-from), var(--c-hero-to));
+		border-bottom: 3px solid $line;
 
 		@include mq($tablet)
 		{
-			padding: 150px 0 110px;
+			padding: 128px 0 104px;
 		}
 	}
 
@@ -93,33 +88,6 @@ const stats = [
 	{
 		position: relative;
 		z-index: 2;
-	}
-
-	.landing-hero__blob
-	{
-		position: absolute;
-		border-radius: 50%;
-		filter: blur(10px);
-		opacity: .55;
-		z-index: 1;
-	}
-
-	.landing-hero__blob--one
-	{
-		top: -60px;
-		right: -40px;
-		width: 260px;
-		height: 260px;
-		background-color: $cyan;
-	}
-
-	.landing-hero__blob--two
-	{
-		bottom: -80px;
-		left: -50px;
-		width: 220px;
-		height: 220px;
-		background-color: $magenta;
 	}
 
 	.landing-hero__kicker
@@ -130,39 +98,38 @@ const stats = [
 		padding: 6px 14px;
 		font-family: var(--font-display);
 		font-size: 14px;
-		letter-spacing: 1.5px;
+		letter-spacing: 1.2px;
 		text-transform: uppercase;
-		color: $black;
-		background-color: $main;
-		border: 3px solid $black;
-		transform: rotate(-1.5deg);
+		color: $accent-ink;
+		background-color: $accent;
+		border: 2px solid $line;
 	}
 
 	.landing-hero__kicker-icon
 	{
-		width: 20px;
-		height: 20px;
+		width: 18px;
+		height: 18px;
 	}
 
 	.landing-hero__title
 	{
-		margin: 26px 0 0;
-		font-size: 64px;
-		color: $white;
+		margin: 24px 0 0;
+		font-size: 56px;
+		color: $text;
 
 		@include mq($mobile)
 		{
-			font-size: 88px;
+			font-size: 76px;
 		}
 
 		@include mq($tablet)
 		{
-			font-size: 150px;
+			font-size: 128px;
 		}
 
 		@include mq($desktop)
 		{
-			font-size: 190px;
+			font-size: 160px;
 		}
 	}
 
@@ -180,28 +147,25 @@ const stats = [
 		top: 0;
 		left: 0;
 		width: 100%;
+		opacity: .5;
 	}
 
-	.landing-hero__title-line::before { color: $magenta; transform: translate(-5px, 2px); z-index: -1; }
-	.landing-hero__title-line::after { color: $cyan; transform: translate(5px, -2px); z-index: -2; }
+	.landing-hero__title-line::before { color: $accent-3; transform: translate(-2px, 1px); z-index: -1; }
+	.landing-hero__title-line::after { color: $accent-2; transform: translate(2px, -1px); z-index: -2; }
 
-	.landing-hero__title-line--accent
-	{
-		color: $main;
-		margin-left: .12em;
-	}
+	.landing-hero__title-line--accent { color: $accent; }
 
 	.landing-hero__pitch
 	{
-		max-width: 640px;
-		margin: 28px 0 0;
-		font-size: 18px;
+		max-width: 620px;
+		margin: 26px 0 0;
+		font-size: 17px;
 		font-weight: 600;
-		color: $paper;
+		color: $text;
 
 		@include mq($tablet)
 		{
-			font-size: 22px;
+			font-size: 20px;
 		}
 	}
 
@@ -209,8 +173,8 @@ const stats = [
 	{
 		display: flex;
 		flex-wrap: wrap;
-		gap: 16px;
-		margin-top: 36px;
+		gap: 14px;
+		margin-top: 32px;
 	}
 
 	.landing-hero__btn
@@ -218,38 +182,38 @@ const stats = [
 		display: inline-flex;
 		align-items: center;
 		gap: 10px;
-		padding: 15px 24px;
+		padding: 13px 22px;
 		font-family: var(--font-display);
-		font-size: 17px;
-		letter-spacing: 1px;
+		font-size: 16px;
+		letter-spacing: .8px;
 		text-transform: uppercase;
-		color: $white;
-		background-color: $black;
-		border: 3px solid $black;
-		box-shadow: 6px 6px 0 rgba($black, .6);
+		color: $text;
+		background-color: $surface;
+		border: 2px solid $line;
+		box-shadow: 5px 5px 0 $shadow;
 		@include transition();
 
-		&:hover { transform: translate(-2px, -2px); box-shadow: 9px 9px 0 rgba($black, .6); }
+		&:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 $shadow; }
 	}
 
 	.landing-hero__btn--primary
 	{
-		color: $black;
-		background-color: $main;
+		color: $accent-ink;
+		background-color: $accent;
 	}
 
 	.landing-hero__btn-icon
 	{
-		width: 20px;
-		height: 20px;
+		width: 18px;
+		height: 18px;
 	}
 
 	.landing-hero__stats
 	{
 		display: flex;
 		flex-wrap: wrap;
-		gap: 14px;
-		margin: 44px 0 0;
+		gap: 12px;
+		margin: 40px 0 0;
 		padding: 0;
 		list-style: none;
 	}
@@ -258,42 +222,38 @@ const stats = [
 	{
 		flex: 1 1 150px;
 		padding: 16px 18px;
-		background-color: rgba($black, .55);
-		border: 3px solid $black;
-		transform: rotate(-1deg);
-
-		&:nth-child(even) { transform: rotate(1.2deg); }
+		background-color: $surface;
+		border: 2px solid $line;
 	}
 
 	.landing-hero__stat-value
 	{
 		display: block;
 		font-family: var(--font-display);
-		font-size: 40px;
-		color: $cyan;
+		font-size: 38px;
+		color: $accent-2;
 	}
 
 	.landing-hero__stat-label
 	{
 		font-size: 13px;
 		text-transform: uppercase;
-		letter-spacing: 1px;
-		color: $text-muted;
+		letter-spacing: .8px;
+		color: $text-dim;
 	}
 
 	.landing-hero__sound
 	{
 		position: absolute;
-		right: 4%;
-		bottom: 18px;
-		font-size: 46px;
-		transform: rotate(-8deg);
-		z-index: 2;
+		right: 3%;
+		bottom: 12px;
+		font-size: 64px;
+		z-index: 1;
 
 		@include mq($tablet)
 		{
-			font-size: 90px;
-			bottom: 40px;
+			font-size: 128px;
+			bottom: 28px;
 		}
 	}
 </style>

@@ -54,8 +54,8 @@ const medium = skills.filter(s => s.level === 'medium');
 <style lang="scss">
 	.landing-skills
 	{
-		background-color: $ink;
-		border-bottom: 6px solid $black;
+		background-color: $bg;
+		border-bottom: 3px solid $line;
 	}
 
 	.landing-skills__inner
@@ -66,19 +66,18 @@ const medium = skills.filter(s => s.level === 'medium');
 
 	.landing-skills__title
 	{
-		font-size: 44px;
-		color: $white;
-		@include glitch-text($magenta, $cyan);
+		font-size: 40px;
+		color: $text;
 
 		@include mq($tablet)
 		{
-			font-size: 76px;
+			font-size: 68px;
 		}
 	}
 
 	.landing-skills__group
 	{
-		margin-top: 40px;
+		margin-top: 36px;
 	}
 
 	.landing-skills__group-label
@@ -86,47 +85,45 @@ const medium = skills.filter(s => s.level === 'medium');
 		display: inline-block;
 		padding: 5px 14px;
 		font-family: var(--font-display);
-		font-size: 15px;
-		letter-spacing: 1.5px;
+		font-size: 14px;
+		letter-spacing: 1.2px;
 		text-transform: uppercase;
-		color: $black;
-		border: 3px solid $black;
-		transform: rotate(-1.5deg);
+		color: $accent-ink;
+		border: 2px solid $line;
 	}
 
-	.landing-skills__group-label--advanced { background-color: $main; }
-	.landing-skills__group-label--medium { background-color: $cyan; }
+	.landing-skills__group-label--advanced { background-color: $accent; }
+	.landing-skills__group-label--medium { background-color: $accent-2; }
 
 	.landing-skills__list
 	{
 		display: flex;
 		flex-wrap: wrap;
-		gap: 12px;
-		margin: 20px 0 0;
+		gap: 10px;
+		margin: 18px 0 0;
 		padding: 0;
 		list-style: none;
 	}
 
 	.landing-skills__chip
 	{
-		padding: 10px 16px;
+		padding: 9px 15px;
 		font-family: var(--font-display);
-		font-size: 16px;
-		letter-spacing: .5px;
+		font-size: 15px;
+		letter-spacing: .4px;
 		text-transform: uppercase;
-		color: $white;
-		background-color: rgba($white, .06);
-		border: 3px solid $white;
-		box-shadow: 4px 4px 0 $black;
+		color: $text;
+		background-color: $surface;
+		border: 2px solid $line;
+		box-shadow: 3px 3px 0 $shadow;
 		@include transition();
 
-		&:hover { transform: translate(-2px, -2px) rotate(-1deg); }
+		&:hover { transform: translate(-2px, -2px); }
 	}
 
 	.landing-skills__chip--advanced
 	{
-		color: $black;
-		background-color: $main;
-		border-color: $black;
+		color: $accent-ink;
+		background-color: $accent;
 	}
 </style>

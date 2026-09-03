@@ -7,9 +7,9 @@ export const useResumeData = () =>
 	const person = {
 		name: 'Сослан Болотаев',
 		role: 'Frontend-разработчик',
-		email: 'revaz.bolataev2003@gmail.com',
+		email: 'soslanzs28@gmail.com',
 		since: 2023,
-		pitch: 'Собираю быстрые интерфейсы на Vue 3 / Nuxt и Bitrix. Живу в PageSpeed и Core Web Vitals.',
+		pitch: 'Собираю быстрые интерфейсы на Vue 3 / Nuxt и Bitrix. Отдельно — оптимизация PageSpeed и Core Web Vitals.',
 	};
 
 	const skills = [

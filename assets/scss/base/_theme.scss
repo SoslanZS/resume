@@ -1,0 +1,74 @@
+// ── Colour system ────────────────────────────────────────────────
+// Muted "comic print" palette: keeps the Spider-Verse structure
+// (flat blocks, ink borders, halftone) without the acid tones.
+
+:root
+{
+	color-scheme: light;
+
+	--c-bg        : #f5f3ec;
+	--c-surface   : #ffffff;
+	--c-surface-2 : #efeadd;
+	--c-line      : #1b1c22;
+	--c-text      : #1b1c22;
+	--c-text-dim  : #5b606b;
+
+	--c-accent     : #c0872e;
+	--c-accent-ink : #1b1c22;
+	--c-accent-2   : #2c7a72;
+	--c-accent-3   : #b04b3c;
+
+	--c-shadow   : rgba(27, 28, 34, .22);
+	--c-overlay  : rgba(27, 28, 34, .05);
+	--c-hairline : rgba(27, 28, 34, .12);
+	--c-dots     : rgba(27, 28, 34, .05);
+
+	--c-hero-from    : #ebe4d5;
+	--c-hero-to      : #e6eae7;
+	--c-perf-from    : #ece2d6;
+	--c-perf-to      : #e5e9ec;
+	--c-contact-from : #e3ebe8;
+	--c-contact-to   : #ece6df;
+}
+
+@mixin dark-tokens
+{
+	color-scheme: dark;
+
+	--c-bg        : #16181d;
+	--c-surface   : #1e2128;
+	--c-surface-2 : #262a33;
+	--c-line      : #0c0d11;
+	--c-text      : #eceef2;
+	--c-text-dim  : #9ba1ae;
+
+	--c-accent     : #e0a33e;
+	--c-accent-ink : #16181d;
+	--c-accent-2   : #46a89d;
+	--c-accent-3   : #cf6250;
+
+	--c-shadow   : rgba(0, 0, 0, .45);
+	--c-overlay  : rgba(0, 0, 0, .38);
+	--c-hairline : rgba(255, 255, 255, .10);
+	--c-dots     : rgba(255, 255, 255, .05);
+
+	--c-hero-from    : #202a33;
+	--c-hero-to      : #2b2732;
+	--c-perf-from    : #33262a;
+	--c-perf-to      : #2a2e38;
+	--c-contact-from : #25333a;
+	--c-contact-to   : #2c2a34;
+}
+
+@media (prefers-color-scheme: dark)
+{
+	:root:not([data-theme="light"])
+	{
+		@include dark-tokens;
+	}
+}
+
+:root[data-theme="dark"]
+{
+	@include dark-tokens;
+}

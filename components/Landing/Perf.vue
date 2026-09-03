@@ -9,7 +9,7 @@ const { perf } = useResumeData();
 		class="landing-perf g-section"
 	>
 		<div class="g-dots" />
-		<span class="landing-perf__sound g-sound">FWOOSH!</span>
+		<span class="landing-perf__sound g-sound">FWOOSH</span>
 
 		<div class="g-container landing-perf__inner">
 			<span class="g-tag">Профильный навык</span>
@@ -42,9 +42,8 @@ const { perf } = useResumeData();
 	{
 		position: relative;
 		overflow: hidden;
-		background-color: $magenta;
-		background-image: linear-gradient(160deg, $magenta, $violet);
-		border-bottom: 6px solid $black;
+		background-image: linear-gradient(155deg, var(--c-perf-from), var(--c-perf-to));
+		border-bottom: 3px solid $line;
 	}
 
 	.landing-perf__inner
@@ -55,41 +54,37 @@ const { perf } = useResumeData();
 
 	.landing-perf__title
 	{
-		margin: 20px 0 0;
-		font-size: 52px;
-		color: $white;
+		margin: 18px 0 0;
+		font-size: 46px;
+		color: $text;
 
 		@include mq($tablet)
 		{
-			font-size: 104px;
+			font-size: 92px;
 		}
 	}
 
-	.landing-perf__title-accent
-	{
-		color: $main;
-		-webkit-text-stroke: 3px $black;
-	}
+	.landing-perf__title-accent { color: $accent; }
 
 	.landing-perf__blurb
 	{
 		max-width: 620px;
-		margin: 24px 0 0;
-		font-size: 18px;
-		font-weight: 700;
-		color: $paper;
+		margin: 22px 0 0;
+		font-size: 17px;
+		font-weight: 600;
+		color: $text;
 
 		@include mq($tablet)
 		{
-			font-size: 21px;
+			font-size: 20px;
 		}
 	}
 
 	.landing-perf__list
 	{
 		display: grid;
-		gap: 14px;
-		margin: 40px 0 0;
+		gap: 12px;
+		margin: 36px 0 0;
 		padding: 0;
 		list-style: none;
 
@@ -104,38 +99,36 @@ const { perf } = useResumeData();
 		display: flex;
 		gap: 12px;
 		align-items: flex-start;
-		padding: 16px 18px;
+		padding: 15px 17px;
 		font-weight: 600;
-		color: $white;
-		background-color: rgba($black, .5);
-		border: 3px solid $black;
-		box-shadow: 5px 5px 0 $black;
+		color: $text;
+		background-color: $surface;
+		border: 2px solid $line;
+		box-shadow: 4px 4px 0 $shadow;
 	}
 
 	.landing-perf__item-icon
 	{
 		flex-shrink: 0;
-		width: 22px;
-		height: 22px;
+		width: 20px;
+		height: 20px;
 		margin-top: 2px;
-		color: $main;
+		color: $accent;
 	}
 
 	.landing-perf__sound
 	{
 		position: absolute;
-		left: -10px;
-		top: 24px;
-		font-size: 54px;
-		transform: rotate(-6deg);
-		opacity: .9;
+		left: -6px;
+		top: 20px;
+		font-size: 70px;
 
 		@include mq($tablet)
 		{
-			font-size: 110px;
+			font-size: 130px;
 			left: auto;
-			right: 5%;
-			top: 40px;
+			right: 4%;
+			top: 36px;
 		}
 	}
 </style>
