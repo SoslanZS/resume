@@ -138,6 +138,12 @@ const stats = [
 		width: 100%;
 		height: auto;
 		filter: grayscale(1) contrast(1.4) brightness(1.02);
+		transition: filter .3s ease-out;
+	}
+
+	.landing-hero__photo:hover .landing-hero__photo-img
+	{
+		filter: none;
 	}
 
 	.landing-hero__photo-cap

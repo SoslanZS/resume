@@ -3,6 +3,7 @@
 **Frontend-разработчик**
 
 Email: soslanzs28@gmail.com
+Telegram: https://t.me/SoslanZS  ·  WhatsApp: @SoslanZS
 _(контактные данные проверьте и при необходимости поправьте)_
 
 ---

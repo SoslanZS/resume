@@ -5,6 +5,10 @@ export default defineNuxtConfig({
 	css: ['reset-css/reset.css', '~/assets/scss/main.scss'],
 	app: {
 		head: {
+			link: [
+				{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
+				{ rel: 'alternate icon', type: 'image/x-icon', href: '/favicon.ico' },
+			],
 			script: [
 				{
 					// ставим тему до первой отрисовки, чтобы не было мигания

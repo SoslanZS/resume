@@ -59,6 +59,22 @@ const copyEmail = async () =>
 				>
 					{{ person.email }}
 				</a>
+				<a
+					class="landing-contact__btn"
+					:href="person.telegram.url"
+					target="_blank"
+					rel="noopener"
+				>
+					Telegram {{ person.telegram.handle }}
+				</a>
+				<a
+					class="landing-contact__btn"
+					:href="person.whatsapp.url"
+					target="_blank"
+					rel="noopener"
+				>
+					WhatsApp {{ person.whatsapp.handle }}
+				</a>
 				<button
 					class="landing-contact__btn"
 					type="button"
@@ -78,7 +94,19 @@ const copyEmail = async () =>
 
 		<footer class="landing-contact__footer g-container">
 			<span>{{ person.name }} — {{ person.role }}</span>
-			<span>{{ person.email }}</span>
+			<span class="landing-contact__footer-links">
+				<a
+					:href="person.telegram.url"
+					target="_blank"
+					rel="noopener"
+				>TG</a>
+				<a
+					:href="person.whatsapp.url"
+					target="_blank"
+					rel="noopener"
+				>WA</a>
+				<a :href="`mailto:${person.email}`">{{ person.email }}</a>
+			</span>
 		</footer>
 	</section>
 </template>
@@ -179,6 +207,20 @@ const copyEmail = async () =>
 		letter-spacing: .5px;
 		color: $text-dim;
 		border-top: 2px solid $bg;
+	}
+
+	.landing-contact__footer-links
+	{
+		display: inline-flex;
+		gap: 16px;
+	}
+
+	.landing-contact__footer-links a
+	{
+		color: $accent;
+		@include transition();
+
+		&:hover { color: $bg; }
 	}
 
 	.landing-contact__sound

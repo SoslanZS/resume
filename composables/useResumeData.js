@@ -8,6 +8,8 @@ export const useResumeData = () =>
 		name: 'Сослан Болотаев',
 		role: 'Frontend-разработчик',
 		email: 'soslanzs28@gmail.com',
+		telegram: { handle: '@SoslanZS', url: 'https://t.me/SoslanZS' },
+		whatsapp: { handle: '@SoslanZS', url: 'https://wa.me/SoslanZS' },
 		since: 2023,
 		pitch: 'Собираю быстрые интерфейсы на Vue 3 / Nuxt и Bitrix. Отдельно — оптимизация PageSpeed и Core Web Vitals.',
 	};
