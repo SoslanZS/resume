@@ -16,8 +16,14 @@ const links = [
 			class="landing-nav__brand"
 			href="#top"
 		>
-			<icons-spider class="landing-nav__brand-icon" />
-			СБ
+			<img
+				class="landing-nav__brand-photo"
+				src="/avatar.webp"
+				alt="Сослан Болотаев"
+				width="34"
+				height="34"
+			>
+			<span class="landing-nav__brand-name">С.БОЛОТАЕВ</span>
 		</a>
 
 		<div class="landing-nav__right">
@@ -31,7 +37,7 @@ const links = [
 						class="landing-nav__link"
 						:href="link.href"
 					>
-						{{ link.label }}
+						[ {{ link.label }} ]
 					</a>
 				</li>
 			</ul>
@@ -53,43 +59,49 @@ const links = [
 	{
 		position: sticky;
 		top: 0;
-		z-index: 50;
+		z-index: 100;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 16px;
 		padding: 10px 20px;
-		background-color: $surface;
-		border-bottom: 2px solid $line;
+		background-color: $line;
+		color: $bg;
+		border-bottom: 3px solid $accent;
 	}
 
 	.landing-nav__brand
 	{
 		display: inline-flex;
 		align-items: center;
-		gap: 8px;
+		gap: 10px;
 		font-family: var(--font-display);
-		font-size: 20px;
-		color: $accent;
+		font-weight: 700;
+		font-size: 15px;
+		letter-spacing: 0;
 	}
 
-	.landing-nav__brand-icon
+	.landing-nav__brand-photo
 	{
-		width: 22px;
-		height: 22px;
+		width: 34px;
+		height: 34px;
+		object-fit: cover;
+		filter: grayscale(1) contrast(1.35);
+		border: 2px solid $bg;
+		transform: rotate(-2deg);
 	}
 
 	.landing-nav__right
 	{
 		display: flex;
 		align-items: center;
-		gap: 8px;
+		gap: 6px;
 	}
 
 	.landing-nav__list
 	{
 		display: none;
-		gap: 4px;
+		gap: 2px;
 		margin: 0;
 		padding: 0;
 		list-style: none;
@@ -103,15 +115,14 @@ const links = [
 	.landing-nav__link
 	{
 		display: block;
-		padding: 8px 12px;
-		font-family: var(--font-display);
-		font-size: 14px;
-		letter-spacing: .8px;
+		padding: 8px 10px;
+		font-size: 13px;
 		text-transform: uppercase;
-		color: $text;
+		letter-spacing: .5px;
+		color: $bg;
 		@include transition();
 
-		&:hover { color: $accent-2; }
+		&:hover { color: $accent; }
 	}
 
 	.landing-nav__theme
@@ -119,20 +130,20 @@ const links = [
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		width: 36px;
-		height: 36px;
-		color: $text;
+		width: 34px;
+		height: 34px;
+		color: $bg;
 		background-color: transparent;
-		border: 2px solid $line;
+		border: 2px solid $bg;
 		cursor: pointer;
 		@include transition();
 
-		&:hover { color: $accent; }
+		&:hover { color: $accent; border-color: $accent; }
 	}
 
 	.landing-nav__theme-icon
 	{
-		width: 18px;
-		height: 18px;
+		width: 16px;
+		height: 16px;
 	}
 </style>

@@ -26,17 +26,33 @@ const copyEmail = async () =>
 		class="landing-contact g-section"
 	>
 		<div class="g-dots" />
-		<span class="landing-contact__sound g-sound">BAM</span>
+		<span class="landing-contact__sound g-sound">ENCORE</span>
+		<span class="g-tape landing-contact__tape" />
 
 		<div class="g-container landing-contact__inner">
-			<h2 class="landing-contact__title">
+			<p
+				class="landing-contact__eyebrow"
+				data-reveal
+			>
+				04 — Связаться
+			</p>
+			<h2
+				class="landing-contact__title"
+				data-reveal
+			>
 				Нужен фронт?
 			</h2>
-			<p class="landing-contact__text">
-				Vue 3 / Nuxt, Bitrix и оптимизация PageSpeed. Пишите.
+			<p
+				class="landing-contact__text"
+				data-reveal
+			>
+				Vue 3 / Nuxt, Bitrix и оптимизация PageSpeed. Пишите — без прелюдий.
 			</p>
 
-			<div class="landing-contact__actions">
+			<div
+				class="landing-contact__actions"
+				data-reveal
+			>
 				<a
 					class="landing-contact__btn landing-contact__btn--primary"
 					:href="`mailto:${person.email}`"
@@ -60,8 +76,8 @@ const copyEmail = async () =>
 			</div>
 		</div>
 
-		<footer class="landing-contact__footer">
-			<span>{{ person.name }} · {{ person.role }}</span>
+		<footer class="landing-contact__footer g-container">
+			<span>{{ person.name }} — {{ person.role }}</span>
 			<span>{{ person.email }}</span>
 		</footer>
 	</section>
@@ -72,7 +88,8 @@ const copyEmail = async () =>
 	{
 		position: relative;
 		overflow: hidden;
-		background-image: linear-gradient(200deg, var(--c-contact-from), var(--c-contact-to));
+		background-color: $line;
+		color: $bg;
 	}
 
 	.landing-contact__inner
@@ -81,60 +98,70 @@ const copyEmail = async () =>
 		z-index: 2;
 	}
 
+	.landing-contact__tape
+	{
+		top: 24px;
+		left: 6%;
+		width: 130px;
+		transform: rotate(-7deg);
+		background-color: $accent-3;
+	}
+
+	.landing-contact__eyebrow
+	{
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: $accent;
+	}
+
 	.landing-contact__title
 	{
-		font-size: 48px;
-		color: $text;
-
-		@include mq($tablet)
-		{
-			font-size: 104px;
-		}
+		margin-top: 8px;
+		font-size: clamp(2.5rem, 9vw, 6rem);
+		color: $bg;
+		text-shadow: 2px 0 0 var(--c-accent-2), -2px 1px 0 var(--c-denim);
 	}
 
 	.landing-contact__text
 	{
-		max-width: 520px;
-		margin: 18px 0 0;
-		font-size: 17px;
-		font-weight: 600;
-		color: $text;
-
-		@include mq($tablet)
-		{
-			font-size: 20px;
-		}
+		max-width: 56ch;
+		margin: 16px 0 0;
+		font-size: 1rem;
+		color: $bg;
 	}
 
 	.landing-contact__actions
 	{
 		display: flex;
 		flex-wrap: wrap;
-		gap: 12px;
-		margin-top: 32px;
+		gap: 10px;
+		margin-top: 28px;
 	}
 
 	.landing-contact__btn
 	{
-		padding: 13px 22px;
+		padding: 12px 20px;
 		font-family: var(--font-display);
-		font-size: 15px;
-		letter-spacing: .8px;
+		font-size: 0.9rem;
+		font-weight: 700;
 		text-transform: uppercase;
-		color: $text;
-		background-color: $surface;
-		border: 2px solid $line;
-		box-shadow: 5px 5px 0 $shadow;
+		letter-spacing: .5px;
+		color: $bg;
+		background-color: transparent;
+		border: 2px solid $bg;
 		cursor: pointer;
 		@include transition();
 
-		&:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 $shadow; }
+		&:hover { transform: translateY(-2px); }
 	}
 
 	.landing-contact__btn--primary
 	{
 		color: $accent-ink;
 		background-color: $accent;
+		border-color: $accent;
 	}
 
 	.landing-contact__footer
@@ -143,29 +170,25 @@ const copyEmail = async () =>
 		z-index: 2;
 		display: flex;
 		flex-wrap: wrap;
-		gap: 8px 24px;
+		gap: 6px 24px;
 		justify-content: space-between;
-		max-width: 1180px;
-		margin: 72px auto 0;
-		padding: 18px 20px 0;
-		font-size: 13px;
-		font-weight: 600;
+		margin-top: 64px;
+		padding-top: 16px;
+		font-size: 0.8rem;
 		text-transform: uppercase;
-		letter-spacing: .8px;
+		letter-spacing: .5px;
 		color: $text-dim;
-		border-top: 2px solid $line;
+		border-top: 2px solid $bg;
 	}
 
 	.landing-contact__sound
 	{
 		position: absolute;
-		right: 4%;
-		top: 24px;
-		font-size: 68px;
-
-		@include mq($tablet)
-		{
-			font-size: 128px;
-		}
+		right: 2%;
+		bottom: 8px;
+		z-index: 1;
+		font-size: clamp(2.5rem, 12vw, 8rem);
+		-webkit-text-stroke-color: $accent;
+		opacity: .3;
 	}
 </style>

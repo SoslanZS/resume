@@ -13,18 +13,33 @@
 }
 
 @mixin transition() {
-    transition: .18s ease;
+    transition: .22s ease-out;
 }
 
-// Ben-Day / halftone dot texture
-@mixin halftone($color: var(--c-dots), $size: 16px) {
-    background-image: radial-gradient($color 1.5px, transparent 1.6px);
+// halftone / xerox dot texture
+@mixin halftone($color: var(--c-dots), $size: 15px) {
+    background-image: radial-gradient($color 1.4px, transparent 1.5px);
     background-size: $size $size;
 }
 
-// Comic panel: ink border + hard offset shadow
-@mixin panel() {
-    background-color: var(--c-surface);
-    border: 3px solid var(--c-line);
-    box-shadow: 8px 8px 0 var(--c-shadow);
+// zine card: hard ink border + offset shadow, no radius
+@mixin zine($bg: var(--c-surface)) {
+    background-color: $bg;
+    border: 2px solid var(--c-line);
+    box-shadow: 6px 6px 0 var(--c-shadow);
+}
+
+// torn / rough paper edge (jagged clip)
+@mixin torn-bottom() {
+    clip-path: polygon(
+        0 0, 100% 0, 100% calc(100% - 10px),
+        92% 100%, 84% calc(100% - 8px), 74% 100%, 63% calc(100% - 9px),
+        52% 100%, 41% calc(100% - 7px), 30% 100%, 19% calc(100% - 9px),
+        9% 100%, 0 calc(100% - 6px)
+    );
+}
+
+// misregistered ink print — offset colour ghosts behind text
+@mixin misprint($a: var(--c-accent-2), $b: var(--c-denim)) {
+    text-shadow: 2px 0 0 $a, -2px 1px 0 $b;
 }

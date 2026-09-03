@@ -11,7 +11,7 @@ defineProps({
 const tagLabel = {
 	lead: 'Ведущий фронтенд',
 	landing: 'Лендинг',
-	support: 'Поддержка и фичи',
+	support: 'Поддержка / фичи',
 };
 </script>
 
@@ -19,10 +19,11 @@ const tagLabel = {
 	<article
 		class="landing-project-card"
 		:class="`landing-project-card--${project.tag}`"
+		data-reveal
 	>
-		<div class="landing-project-card__top">
-			<span class="landing-project-card__badge">{{ tagLabel[project.tag] }}</span>
-			<span class="landing-project-card__sound g-sound">{{ project.sound }}</span>
+		<div class="landing-project-card__head">
+			<span class="landing-project-card__stamp">{{ tagLabel[project.tag] }}</span>
+			<span class="landing-project-card__file">/{{ project.key }}</span>
 		</div>
 
 		<h3 class="landing-project-card__title">
@@ -61,71 +62,77 @@ const tagLabel = {
 	.landing-project-card
 	{
 		position: relative;
-		display: flex;
-		flex-direction: column;
-		padding: 24px;
+		width: 100%;
+		max-width: 680px;
+		padding: 22px;
 		background-color: $surface;
 		border: 2px solid $line;
-		box-shadow: 8px 8px 0 $shadow;
-		@include transition();
+		box-shadow: 7px 7px 0 $shadow;
 
-		&:hover { transform: translate(-3px, -3px); box-shadow: 12px 12px 0 $shadow; }
+		@include mq($tablet)
+		{
+			&:nth-child(even)
+			{
+				margin-left: auto;
+				transform: rotate(1deg);
+			}
+
+			&:nth-child(odd) { transform: rotate(-1deg); }
+		}
 	}
 
-	.landing-project-card--lead { border-top: 7px solid $accent; }
-	.landing-project-card--landing { border-top: 7px solid $accent-2; }
-	.landing-project-card--support { border-top: 7px solid $accent-3; }
+	.landing-project-card--lead { border-top: 8px solid $accent; }
+	.landing-project-card--landing { border-top: 8px solid $denim; }
+	.landing-project-card--support { border-top: 8px solid $accent-2; }
 
-	.landing-project-card__top
+	.landing-project-card__head
 	{
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: space-between;
-		gap: 12px;
-		margin-bottom: 8px;
+		gap: 8px;
+		margin-bottom: 6px;
 	}
 
-	.landing-project-card__sound
+	.landing-project-card__stamp
 	{
-		font-size: 26px;
-	}
-
-	.landing-project-card__badge
-	{
-		padding: 4px 10px;
-		font-family: var(--font-display);
-		font-size: 11px;
+		padding: 3px 9px;
+		font-size: 0.72rem;
+		font-weight: 700;
 		letter-spacing: .8px;
 		text-transform: uppercase;
+		color: $accent-ink;
+		background-color: $accent-2;
+		transform: rotate(-1.5deg);
+	}
+
+	.landing-project-card__file
+	{
+		font-size: 0.78rem;
 		color: $text-dim;
-		border: 1px solid $text-dim;
 	}
 
 	.landing-project-card__title
 	{
-		font-size: 36px;
-		color: $text;
-
-		@include mq($tablet)
-		{
-			font-size: 44px;
-		}
+		font-size: clamp(1.6rem, 4vw, 2.4rem);
+		@include misprint();
 	}
 
 	.landing-project-card__role
 	{
-		margin-top: 4px;
-		font-family: var(--font-display);
-		font-size: 14px;
-		letter-spacing: .8px;
+		margin-top: 2px;
+		font-weight: 700;
 		text-transform: uppercase;
-		color: $accent;
+		letter-spacing: .5px;
+		font-size: 0.82rem;
+		color: $accent-3;
 	}
 
 	.landing-project-card__summary
 	{
-		margin-top: 12px;
-		font-weight: 600;
+		margin-top: 10px;
+		font-size: 0.95rem;
 		color: $text;
 	}
 
@@ -133,26 +140,26 @@ const tagLabel = {
 	{
 		display: flex;
 		flex-wrap: wrap;
-		gap: 8px;
-		margin: 16px 0 0;
+		gap: 6px;
+		margin: 14px 0 0;
 		padding: 0;
 		list-style: none;
 	}
 
 	.landing-project-card__tech
 	{
-		padding: 5px 10px;
-		font-size: 12px;
+		padding: 3px 8px;
+		font-size: 0.72rem;
 		font-weight: 700;
 		text-transform: uppercase;
-		letter-spacing: .4px;
-		color: $accent-2;
-		border: 1px solid $accent-2;
+		letter-spacing: .3px;
+		color: $text;
+		border: 1px dashed $line;
 	}
 
 	.landing-project-card__points
 	{
-		margin: 18px 0 0;
+		margin: 14px 0 0;
 		padding: 0;
 		list-style: none;
 	}
@@ -160,20 +167,19 @@ const tagLabel = {
 	.landing-project-card__point
 	{
 		position: relative;
-		padding: 7px 0 7px 20px;
-		font-size: 14px;
+		padding: 6px 0 6px 18px;
+		font-size: 0.88rem;
 		color: $text-dim;
 		border-top: 1px solid $hairline;
 	}
 
 	.landing-project-card__point::before
 	{
-		content: "";
+		content: ">";
 		position: absolute;
 		left: 0;
-		top: 13px;
-		width: 8px;
-		height: 8px;
-		background-color: $accent-3;
+		top: 6px;
+		font-weight: 700;
+		color: $accent-2;
 	}
 </style>

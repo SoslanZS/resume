@@ -12,60 +12,75 @@ const stats = [
 </script>
 
 <template>
-	<header class="landing-hero">
+	<header
+		id="top"
+		class="landing-hero"
+	>
 		<div class="g-dots" />
+		<span class="landing-hero__sound g-sound">DISTORTION</span>
 
 		<div class="g-container landing-hero__inner">
-			<p class="landing-hero__kicker">
-				<icons-spider class="landing-hero__kicker-icon" />
-				{{ person.role }} · с {{ person.since }}
-			</p>
-
-			<h1 class="landing-hero__title">
-				<span
-					class="landing-hero__title-line"
-					data-text="Сослан"
-				>Сослан</span>
-				<span
-					class="landing-hero__title-line landing-hero__title-line--accent"
-					data-text="Болотаев"
-				>Болотаев</span>
-			</h1>
-
-			<p class="landing-hero__pitch">
-				{{ person.pitch }}
-			</p>
-
-			<div class="landing-hero__actions">
-				<a
-					class="landing-hero__btn landing-hero__btn--primary"
-					href="/rezume.md"
-					download
+			<figure class="landing-hero__photo">
+				<span class="g-tape landing-hero__photo-tape landing-hero__photo-tape--tl" />
+				<span class="g-tape landing-hero__photo-tape landing-hero__photo-tape--br" />
+				<img
+					class="landing-hero__photo-img"
+					src="/avatar.webp"
+					alt="Сослан Болотаев"
+					width="300"
+					height="380"
 				>
-					Скачать резюме
-					<icons-arrow class="landing-hero__btn-icon" />
-				</a>
-				<a
-					class="landing-hero__btn"
-					:href="`mailto:${person.email}`"
-				>
-					{{ person.email }}
-				</a>
+				<figcaption class="landing-hero__photo-cap">
+					// front-end / 2023—now
+				</figcaption>
+			</figure>
+
+			<div class="landing-hero__body">
+				<p class="landing-hero__kicker">
+					резюме — не отфильтровано
+				</p>
+
+				<h1 class="landing-hero__title">
+					<span class="landing-hero__title-line">Сослан</span>
+					<span class="landing-hero__title-line landing-hero__title-line--accent">Болотаев</span>
+				</h1>
+
+				<p class="landing-hero__role">
+					{{ person.role }}
+				</p>
+				<p class="landing-hero__pitch">
+					{{ person.pitch }}
+				</p>
+
+				<div class="landing-hero__actions">
+					<a
+						class="landing-hero__btn landing-hero__btn--primary"
+						href="/rezume.md"
+						download
+					>
+						Скачать резюме
+						<icons-arrow class="landing-hero__btn-icon" />
+					</a>
+					<a
+						class="landing-hero__btn"
+						:href="`mailto:${person.email}`"
+					>
+						{{ person.email }}
+					</a>
+				</div>
 			</div>
-
-			<ul class="landing-hero__stats">
-				<li
-					v-for="stat in stats"
-					:key="stat.label"
-					class="landing-hero__stat"
-				>
-					<span class="landing-hero__stat-value">{{ stat.value }}</span>
-					<span class="landing-hero__stat-label">{{ stat.label }}</span>
-				</li>
-			</ul>
 		</div>
 
-		<span class="landing-hero__sound g-sound">THWIP</span>
+		<ul class="landing-hero__stats g-container">
+			<li
+				v-for="stat in stats"
+				:key="stat.label"
+				class="landing-hero__stat"
+			>
+				<span class="landing-hero__stat-value">{{ stat.value }}</span>
+				<span class="landing-hero__stat-label">{{ stat.label }}</span>
+			</li>
+		</ul>
 	</header>
 </template>
 
@@ -74,13 +89,13 @@ const stats = [
 	{
 		position: relative;
 		overflow: hidden;
-		padding: 72px 0 56px;
-		background-image: linear-gradient(150deg, var(--c-hero-from), var(--c-hero-to));
+		padding: 56px 0 40px;
+		background-color: $bg;
 		border-bottom: 3px solid $line;
 
 		@include mq($tablet)
 		{
-			padding: 128px 0 104px;
+			padding: 88px 0 56px;
 		}
 	}
 
@@ -88,112 +103,150 @@ const stats = [
 	{
 		position: relative;
 		z-index: 2;
+		display: grid;
+		gap: 32px;
+
+		@include mq($tablet)
+		{
+			grid-template-columns: 300px 1fr;
+			align-items: start;
+			gap: 48px;
+		}
+	}
+
+	.landing-hero__photo
+	{
+		position: relative;
+		width: 240px;
+		max-width: 100%;
+		margin: 0;
+		padding: 10px 10px 34px;
+		background-color: $surface;
+		border: 2px solid $line;
+		box-shadow: 8px 8px 0 $shadow;
+		transform: rotate(-2.5deg);
+
+		@include mq($tablet)
+		{
+			width: 300px;
+		}
+	}
+
+	.landing-hero__photo-img
+	{
+		display: block;
+		width: 100%;
+		height: auto;
+		filter: grayscale(1) contrast(1.4) brightness(1.02);
+	}
+
+	.landing-hero__photo-cap
+	{
+		margin-top: 8px;
+		font-size: 0.8rem;
+		letter-spacing: .5px;
+		color: $text-dim;
+	}
+
+	.landing-hero__photo-tape
+	{
+		z-index: 3;
+	}
+
+	.landing-hero__photo-tape--tl
+	{
+		top: -12px;
+		left: -22px;
+		transform: rotate(-24deg);
+	}
+
+	.landing-hero__photo-tape--br
+	{
+		right: -20px;
+		bottom: 24px;
+		transform: rotate(-18deg);
+	}
+
+	.landing-hero__body
+	{
+		padding-top: 6px;
 	}
 
 	.landing-hero__kicker
 	{
-		display: inline-flex;
-		align-items: center;
-		gap: 10px;
-		padding: 6px 14px;
-		font-family: var(--font-display);
-		font-size: 14px;
-		letter-spacing: 1.2px;
+		display: inline-block;
+		padding: 4px 10px;
+		font-size: 0.8rem;
 		text-transform: uppercase;
+		letter-spacing: 1px;
 		color: $accent-ink;
-		background-color: $accent;
-		border: 2px solid $line;
-	}
-
-	.landing-hero__kicker-icon
-	{
-		width: 18px;
-		height: 18px;
+		background-color: $accent-2;
+		transform: rotate(-1.2deg);
 	}
 
 	.landing-hero__title
 	{
-		margin: 24px 0 0;
-		font-size: 56px;
-		color: $text;
-
-		@include mq($mobile)
-		{
-			font-size: 76px;
-		}
-
-		@include mq($tablet)
-		{
-			font-size: 128px;
-		}
-
-		@include mq($desktop)
-		{
-			font-size: 160px;
-		}
+		margin: 18px 0 0;
+		font-size: clamp(2.75rem, 9vw, 6rem);
 	}
 
 	.landing-hero__title-line
 	{
-		position: relative;
 		display: block;
+		@include misprint();
 	}
 
-	.landing-hero__title-line::before,
-	.landing-hero__title-line::after
+	.landing-hero__title-line--accent
 	{
-		content: attr(data-text);
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		opacity: .5;
+		color: $accent;
+		margin-left: 0.4ch;
+		transform: rotate(-1deg);
 	}
 
-	.landing-hero__title-line::before { color: $accent-3; transform: translate(-2px, 1px); z-index: -1; }
-	.landing-hero__title-line::after { color: $accent-2; transform: translate(2px, -1px); z-index: -2; }
-
-	.landing-hero__title-line--accent { color: $accent; }
+	.landing-hero__role
+	{
+		margin-top: 14px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+		color: $accent-3;
+	}
 
 	.landing-hero__pitch
 	{
-		max-width: 620px;
-		margin: 26px 0 0;
-		font-size: 17px;
-		font-weight: 600;
+		max-width: 60ch;
+		margin: 12px 0 0;
+		font-size: 1rem;
 		color: $text;
-
-		@include mq($tablet)
-		{
-			font-size: 20px;
-		}
 	}
 
 	.landing-hero__actions
 	{
 		display: flex;
 		flex-wrap: wrap;
-		gap: 14px;
-		margin-top: 32px;
+		gap: 12px;
+		margin-top: 26px;
 	}
 
 	.landing-hero__btn
 	{
 		display: inline-flex;
 		align-items: center;
-		gap: 10px;
-		padding: 13px 22px;
+		gap: 8px;
+		padding: 12px 20px;
 		font-family: var(--font-display);
-		font-size: 16px;
-		letter-spacing: .8px;
+		font-size: 0.9rem;
+		font-weight: 700;
 		text-transform: uppercase;
+		letter-spacing: .5px;
 		color: $text;
 		background-color: $surface;
 		border: 2px solid $line;
-		box-shadow: 5px 5px 0 $shadow;
+		box-shadow: 4px 4px 0 $shadow;
 		@include transition();
 
-		&:hover { transform: translate(-2px, -2px); box-shadow: 8px 8px 0 $shadow; }
+		&:hover { transform: translateY(-2px); box-shadow: 4px 7px 0 $shadow; }
+		&:active { transform: translate(-1px, 0); }
 	}
 
 	.landing-hero__btn--primary
@@ -204,56 +257,64 @@ const stats = [
 
 	.landing-hero__btn-icon
 	{
-		width: 18px;
-		height: 18px;
+		width: 16px;
+		height: 16px;
 	}
 
 	.landing-hero__stats
 	{
-		display: flex;
-		flex-wrap: wrap;
+		position: relative;
+		z-index: 2;
+		display: grid;
 		gap: 12px;
-		margin: 40px 0 0;
-		padding: 0;
+		margin: 40px auto 0;
+		padding-top: 0;
 		list-style: none;
+
+		@include mq($mobile)
+		{
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 
 	.landing-hero__stat
 	{
-		flex: 1 1 150px;
-		padding: 16px 18px;
+		padding: 14px 16px;
 		background-color: $surface;
 		border: 2px solid $line;
+
+		&:nth-child(2) { transform: rotate(-1deg); }
+		&:nth-child(3) { transform: rotate(0.8deg); }
 	}
 
 	.landing-hero__stat-value
 	{
 		display: block;
 		font-family: var(--font-display);
-		font-size: 38px;
+		font-size: 2rem;
+		font-weight: 700;
 		color: $accent-2;
 	}
 
 	.landing-hero__stat-label
 	{
-		font-size: 13px;
+		font-size: 0.8rem;
 		text-transform: uppercase;
-		letter-spacing: .8px;
+		letter-spacing: .5px;
 		color: $text-dim;
 	}
 
 	.landing-hero__sound
 	{
 		position: absolute;
-		right: 3%;
-		bottom: 12px;
-		font-size: 64px;
+		right: 2%;
+		bottom: 4px;
 		z-index: 1;
+		font-size: clamp(2.5rem, 12vw, 9rem);
 
 		@include mq($tablet)
 		{
-			font-size: 128px;
-			bottom: 28px;
+			bottom: 12px;
 		}
 	}
 </style>

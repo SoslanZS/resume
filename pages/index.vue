@@ -4,6 +4,8 @@ const { person } = useResumeData();
 
 const description = 'Сослан Болотаев — frontend-разработчик. Vue 3 / Nuxt, Bitrix, оптимизация PageSpeed и Core Web Vitals. Резюме и проекты.';
 
+useReveal();
+
 useHead({
 	title: `${person.name} — ${person.role}`,
 	meta: [
@@ -17,10 +19,7 @@ useHead({
 </script>
 
 <template>
-	<div
-		id="top"
-		class="page-index"
-	>
+	<div class="page-index">
 		<span class="g-noise" />
 
 		<LandingNav />
@@ -35,6 +34,7 @@ useHead({
 <style lang="scss">
 	.page-index
 	{
+		position: relative;
 		background-color: $bg;
 	}
 </style>

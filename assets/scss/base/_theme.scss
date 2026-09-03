@@ -1,74 +1,65 @@
-// ── Colour system ────────────────────────────────────────────────
-// Muted "comic print" palette: keeps the Spider-Verse structure
-// (flat blocks, ink borders, halftone) without the acid tones.
+// ── Grunge / zine colour system ─────────────────────────────────
+// 90s alt-rock: faded black, dirty yellow, muted red, off-white paper.
+// Full light + dark. Dark is toggled via the `.dark` class on <html>
+// (same switch Tailwind/shadcn use), `.light` forces light.
 
 :root
 {
 	color-scheme: light;
 
-	--c-bg        : #f5f3ec;
-	--c-surface   : #ffffff;
-	--c-surface-2 : #efeadd;
-	--c-line      : #1b1c22;
-	--c-text      : #1b1c22;
-	--c-text-dim  : #5b606b;
+	--c-bg        : #e9e1d4; // off-white paper
+	--c-surface   : #f2ede2;
+	--c-surface-2 : #ded4c2;
+	--c-line      : #2e2e2e; // faded black ink
+	--c-text      : #2e2e2e;
+	--c-text-dim  : #6a6459;
 
-	--c-accent     : #c0872e;
-	--c-accent-ink : #1b1c22;
-	--c-accent-2   : #2c7a72;
-	--c-accent-3   : #b04b3c;
+	--c-accent     : #9a8c2f; // dirty yellow, darkened for paper contrast
+	--c-accent-ink : #e9e1d4;
+	--c-accent-2   : #8c2727; // muted red
+	--c-accent-3   : #a84700; // burnt orange
+	--c-olive      : #55711b;
+	--c-denim      : #33507f;
 
-	--c-shadow   : rgba(27, 28, 34, .22);
-	--c-overlay  : rgba(27, 28, 34, .05);
-	--c-hairline : rgba(27, 28, 34, .12);
-	--c-dots     : rgba(27, 28, 34, .05);
-
-	--c-hero-from    : #ebe4d5;
-	--c-hero-to      : #e6eae7;
-	--c-perf-from    : #ece2d6;
-	--c-perf-to      : #e5e9ec;
-	--c-contact-from : #e3ebe8;
-	--c-contact-to   : #ece6df;
+	--c-shadow   : rgba(46, 46, 46, .28);
+	--c-hairline : rgba(46, 46, 46, .22);
+	--c-dots     : rgba(46, 46, 46, .10);
+	--c-grain    : .10;
 }
 
 @mixin dark-tokens
 {
 	color-scheme: dark;
 
-	--c-bg        : #16181d;
-	--c-surface   : #1e2128;
-	--c-surface-2 : #262a33;
-	--c-line      : #0c0d11;
-	--c-text      : #eceef2;
-	--c-text-dim  : #9ba1ae;
+	--c-bg        : #2e2e2e; // faded black
+	--c-surface   : #262624;
+	--c-surface-2 : #363531;
+	--c-line      : #e9e1d4; // off-white ink on black
+	--c-text      : #e9e1d4;
+	--c-text-dim  : #928b7d;
 
-	--c-accent     : #e0a33e;
-	--c-accent-ink : #16181d;
-	--c-accent-2   : #46a89d;
-	--c-accent-3   : #cf6250;
+	--c-accent     : #b5a642; // dirty yellow
+	--c-accent-ink : #2e2e2e;
+	--c-accent-2   : #c14a4a; // muted red, lifted for dark
+	--c-accent-3   : #cf6a1f; // burnt orange, lifted
+	--c-olive      : #7f9e33;
+	--c-denim      : #5877ad;
 
-	--c-shadow   : rgba(0, 0, 0, .45);
-	--c-overlay  : rgba(0, 0, 0, .38);
-	--c-hairline : rgba(255, 255, 255, .10);
-	--c-dots     : rgba(255, 255, 255, .05);
-
-	--c-hero-from    : #202a33;
-	--c-hero-to      : #2b2732;
-	--c-perf-from    : #33262a;
-	--c-perf-to      : #2a2e38;
-	--c-contact-from : #25333a;
-	--c-contact-to   : #2c2a34;
+	--c-shadow   : rgba(0, 0, 0, .55);
+	--c-hairline : rgba(233, 225, 212, .20);
+	--c-dots     : rgba(233, 225, 212, .07);
+	--c-grain    : .14;
 }
 
 @media (prefers-color-scheme: dark)
 {
-	:root:not([data-theme="light"])
+	:root:not(.light)
 	{
 		@include dark-tokens;
 	}
 }
 
-:root[data-theme="dark"]
+:root.dark
 {
 	@include dark-tokens;
 }

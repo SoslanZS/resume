@@ -1,9 +1,9 @@
 .g-container
 {
 	width: 100%;
-	max-width: 1180px;
+	max-width: $container;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 24px;
 
 	@include mq($tablet)
 	{
@@ -14,15 +14,10 @@
 .g-section
 {
 	position: relative;
-	padding: 64px 0;
-
-	@include mq($tablet)
-	{
-		padding: 100px 0;
-	}
+	padding: clamp(4rem, 8vw, 8rem) 0;
 }
 
-// halftone dots overlay, drop on any positioned block
+// xerox dot texture overlay
 .g-dots
 {
 	position: absolute;
@@ -31,37 +26,77 @@
 	@include halftone();
 }
 
-// full-bleed print grain over the whole page
+// full-bleed print grain
 .g-noise
 {
 	position: fixed;
 	inset: 0;
-	z-index: 9999;
+	z-index: 1;
 	pointer-events: none;
-	opacity: .035;
+	opacity: var(--c-grain);
 	mix-blend-mode: multiply;
-	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+// duct-tape strip — put on a positioned parent, then rotate per use
+.g-tape
+{
+	position: absolute;
+	width: 90px;
+	height: 26px;
+	background-color: $accent;
+	opacity: .82;
+	box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .18);
+}
+
+// stamped label / metadata tag
 .g-tag
 {
 	display: inline-block;
-	padding: 4px 12px;
-	font-family: var(--font-display);
-	font-size: 13px;
+	padding: 3px 10px;
+	font-size: 0.8rem;
+	font-weight: 700;
 	letter-spacing: 1px;
 	text-transform: uppercase;
 	color: $accent-ink;
-	background-color: $accent;
-	border: 2px solid $line;
+	background-color: $accent-2;
+	transform: rotate(-1.4deg);
 }
 
-// muted onomatopoeia flourish — a wink, not a shout
+// oversized xerox "onomatopoeia" watermark
 .g-sound
 {
 	font-family: var(--font-display);
+	font-weight: 700;
 	text-transform: uppercase;
-	color: $accent-3;
-	opacity: .14;
+	letter-spacing: -2px;
+	color: transparent;
+	-webkit-text-stroke: 2px $text-dim;
+	opacity: .28;
 	user-select: none;
+}
+
+// scroll reveal — fade + translate-Y, subtle.
+// Hidden only when JS is active (.js-reveal on <html>); otherwise always visible.
+.js-reveal [data-reveal]
+{
+	opacity: 0;
+	transform: translateY(16px);
+	transition: opacity .42s ease-out, transform .42s ease-out;
+}
+
+.js-reveal [data-reveal].is-visible
+{
+	opacity: 1;
+	transform: none;
+}
+
+@media (prefers-reduced-motion: reduce)
+{
+	.js-reveal [data-reveal]
+	{
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
 }

@@ -31,16 +31,32 @@ const visibleProjects = computed(() =>
 		class="landing-projects g-section"
 	>
 		<div class="g-dots" />
+		<span class="landing-projects__sound g-sound">SETLIST</span>
 
 		<div class="g-container landing-projects__inner">
-			<h2 class="landing-projects__title">
+			<p
+				class="landing-projects__eyebrow"
+				data-reveal
+			>
+				03 — Дискография
+			</p>
+			<h2
+				class="landing-projects__title"
+				data-reveal
+			>
 				Проекты
 			</h2>
-			<p class="landing-projects__lead">
-				Основные рабочие проекты: от поддержки высоконагруженных магазинов до разработки с нуля.
+			<p
+				class="landing-projects__lead"
+				data-reveal
+			>
+				От поддержки высоконагруженных магазинов до разработки с нуля.
 			</p>
 
-			<div class="landing-projects__filters">
+			<div
+				class="landing-projects__filters"
+				data-reveal
+			>
 				<button
 					v-for="filter in filters"
 					:key="filter.key"
@@ -67,7 +83,9 @@ const visibleProjects = computed(() =>
 <style lang="scss">
 	.landing-projects
 	{
-		background-color: $surface-2;
+		position: relative;
+		overflow: hidden;
+		background-color: $bg;
 		border-bottom: 3px solid $line;
 	}
 
@@ -77,22 +95,26 @@ const visibleProjects = computed(() =>
 		z-index: 2;
 	}
 
+	.landing-projects__eyebrow
+	{
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: $accent-3;
+	}
+
 	.landing-projects__title
 	{
-		font-size: 44px;
-		color: $text;
-
-		@include mq($tablet)
-		{
-			font-size: 84px;
-		}
+		margin-top: 6px;
+		font-size: clamp(2.25rem, 7vw, 5rem);
+		@include misprint();
 	}
 
 	.landing-projects__lead
 	{
-		max-width: 620px;
-		margin: 14px 0 0;
-		font-weight: 600;
+		max-width: 60ch;
+		margin: 12px 0 0;
 		color: $text-dim;
 	}
 
@@ -100,41 +122,48 @@ const visibleProjects = computed(() =>
 	{
 		display: flex;
 		flex-wrap: wrap;
-		gap: 10px;
-		margin: 28px 0 0;
+		gap: 8px;
+		margin: 26px 0 0;
 	}
 
 	.landing-projects__filter
 	{
-		padding: 9px 17px;
+		padding: 8px 15px;
 		font-family: var(--font-display);
-		font-size: 14px;
-		letter-spacing: .8px;
+		font-size: 0.85rem;
+		font-weight: 700;
 		text-transform: uppercase;
+		letter-spacing: .5px;
 		color: $text;
 		background-color: transparent;
 		border: 2px solid $line;
 		cursor: pointer;
 		@include transition();
 
-		&:hover { background-color: $overlay; }
+		&:hover { background-color: $surface; }
 	}
 
 	.landing-projects__filter--active
 	{
 		color: $accent-ink;
-		background-color: $accent;
+		background-color: $accent-2;
+		transform: rotate(-1.5deg);
 	}
 
 	.landing-projects__grid
 	{
-		display: grid;
-		gap: 24px;
+		display: flex;
+		flex-direction: column;
+		gap: 26px;
 		margin-top: 34px;
+	}
 
-		@include mq($tablet)
-		{
-			grid-template-columns: repeat(2, 1fr);
-		}
+	.landing-projects__sound
+	{
+		position: absolute;
+		right: 1%;
+		top: 24px;
+		z-index: 1;
+		font-size: clamp(2.5rem, 12vw, 8rem);
 	}
 </style>

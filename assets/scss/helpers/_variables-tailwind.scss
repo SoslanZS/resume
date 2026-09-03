@@ -1,66 +1,75 @@
+// shadcn / Tailwind design tokens remapped onto the grunge palette,
+// so <UiButton>, <UiToast>, `bg-background`, `border-border` etc. match.
+
 :root {
   --color-white: #ffffff;
   --color-black: #000000;
 
-  --background: 0 0% 100%;
-  --foreground: 222.2 84% 4.9%;
+  --background: 37 32% 87%;
+  --foreground: 0 0% 18%;
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  --muted: 39 30% 82%;
+  --muted-foreground: 39 9% 38%;
 
-  --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
+  --popover: 41 38% 92%;
+  --popover-foreground: 0 0% 18%;
 
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --card: 41 38% 92%;
+  --card-foreground: 0 0% 18%;
 
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
 
-  --primary: 222.2 47.4% 11.2%;
-  --primary-foreground: 210 40% 98%;
+  --primary: 0 56% 35%;
+  --primary-foreground: 37 32% 87%;
 
-  --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --secondary: 39 30% 82%;
+  --secondary-foreground: 0 0% 18%;
 
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --accent: 52 53% 39%;
+  --accent-foreground: 37 32% 87%;
 
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive: 0 56% 35%;
+  --destructive-foreground: 37 32% 87%;
 
-  --ring: 222.2 84% 4.9%;
+  --ring: 52 53% 39%;
 
-  --radius: 0.5rem;
+  --radius: 0px;
 }
 
-.dark {
-  --background: 222.2 84% 4.9%;
-  --foreground: 210 40% 98%;
+@mixin shadcn-dark {
+  --background: 0 0% 18%;
+  --foreground: 37 32% 87%;
 
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
+  --muted: 48 5% 20%;
+  --muted-foreground: 40 10% 53%;
 
-  --popover: 222.2 84% 4.9%;
-  --popover-foreground: 210 40% 98%;
+  --popover: 60 3% 15%;
+  --popover-foreground: 37 32% 87%;
 
-  --card: 222.2 84% 4.9%;
-  --card-foreground: 210 40% 98%;
+  --card: 60 3% 15%;
+  --card-foreground: 37 32% 87%;
 
-  --border: 217.2 32.6% 17.5%;
-  --input: 217.2 32.6% 17.5%;
+  --border: 37 32% 87%;
+  --input: 37 32% 87%;
 
-  --primary: 210 40% 98%;
-  --primary-foreground: 222.2 47.4% 11.2%;
+  --primary: 52 47% 48%;
+  --primary-foreground: 0 0% 18%;
 
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
+  --secondary: 48 5% 20%;
+  --secondary-foreground: 37 32% 87%;
 
-  --accent: 217.2 32.6% 17.5%;
-  --accent-foreground: 210 40% 98%;
+  --accent: 0 50% 52%;
+  --accent-foreground: 37 32% 87%;
 
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive: 0 50% 52%;
+  --destructive-foreground: 37 32% 87%;
 
-  --ring: 212.7 26.8% 83.9%;
+  --ring: 52 47% 48%;
+}
+
+.dark { @include shadcn-dark; }
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) { @include shadcn-dark; }
 }

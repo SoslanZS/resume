@@ -1,7 +1,7 @@
 :root
 {
-	--font-display: 'Anton', 'Arial Narrow', 'Arial Black', sans-serif;
-	--font-body: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+	--font-display: "Courier New", "Courier", ui-monospace, monospace;
+	--font-body: "Courier New", "Courier", ui-monospace, monospace;
 }
 
 html
@@ -12,21 +12,20 @@ html
 body
 {
 	font-family: var(--font-body);
-	font-weight: 500;
+	font-weight: 400;
 	color: $text;
 	background-color: $bg;
-	line-height: 1.55;
-	-webkit-font-smoothing: antialiased;
+	line-height: 1.6;
 	overflow-x: hidden;
 }
 
 h1, h2, h3, h4
 {
 	font-family: var(--font-display);
-	font-weight: 400;
-	line-height: 1;
+	font-weight: 700;
+	line-height: 1.05;
+	letter-spacing: -0.5px;
 	text-transform: uppercase;
-	letter-spacing: .4px;
 }
 
 a
@@ -37,6 +36,6 @@ a
 
 ::selection
 {
-	background-color: $accent-3;
-	color: #fff;
+	background-color: $accent-2;
+	color: #e9e1d4;
 }

@@ -1,25 +1,30 @@
 /**
- * Тема оформления (light / dark) с сохранением в localStorage.
- * Первичная установка data-theme на <html> делается инлайн-скриптом в nuxt.config
- * (без мигания), здесь — только переключение.
+ * Тема оформления (light / dark).
+ * Класс `.dark` / `.light` на <html> (тот же переключатель, что у Tailwind/shadcn).
+ * Первичная установка — инлайн-скриптом в nuxt.config (без мигания).
  * @returns {{ theme: import('vue').Ref<string>, toggleTheme: () => void }}
  */
 export const useTheme = () =>
 {
 	const theme = useState('theme', () => 'light');
 
+	const apply = (value) =>
+	{
+		const el = document.documentElement;
+
+		el.classList.toggle('dark', value === 'dark');
+		el.classList.toggle('light', value === 'light');
+	};
+
 	onMounted(() =>
 	{
-		const current = document.documentElement.dataset.theme;
-
-		if (current)
-			theme.value = current;
+		theme.value = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
 	});
 
 	const toggleTheme = () =>
 	{
 		theme.value = theme.value === 'dark' ? 'light' : 'dark';
-		document.documentElement.dataset.theme = theme.value;
+		apply(theme.value);
 
 		try
 		{
@@ -27,7 +32,7 @@ export const useTheme = () =>
 		}
 		catch
 		{
-			// приватный режим — просто игнорируем
+			// приватный режим — игнорируем
 		}
 	};
 

@@ -9,17 +9,29 @@ const { perf } = useResumeData();
 		class="landing-perf g-section"
 	>
 		<div class="g-dots" />
-		<span class="landing-perf__sound g-sound">FWOOSH</span>
+		<span class="landing-perf__sound g-sound">FEEDBACK</span>
+		<span class="g-tape landing-perf__tape" />
 
 		<div class="g-container landing-perf__inner">
-			<span class="g-tag">Профильный навык</span>
+			<p
+				class="landing-perf__eyebrow"
+				data-reveal
+			>
+				02 — Профильный навык
+			</p>
 
-			<h2 class="landing-perf__title">
-				Оптимизация<br>
+			<h2
+				class="landing-perf__title"
+				data-reveal
+			>
+				Оптимизация
 				<span class="landing-perf__title-accent">PageSpeed</span>
 			</h2>
 
-			<p class="landing-perf__blurb">
+			<p
+				class="landing-perf__blurb"
+				data-reveal
+			>
 				{{ perf.blurb }}
 			</p>
 
@@ -28,8 +40,9 @@ const { perf } = useResumeData();
 					v-for="point in perf.points"
 					:key="point"
 					class="landing-perf__item"
+					data-reveal
 				>
-					<icons-bolt class="landing-perf__item-icon" />
+					<span class="landing-perf__mark">[x]</span>
 					<span>{{ point }}</span>
 				</li>
 			</ul>
@@ -42,7 +55,7 @@ const { perf } = useResumeData();
 	{
 		position: relative;
 		overflow: hidden;
-		background-image: linear-gradient(155deg, var(--c-perf-from), var(--c-perf-to));
+		background-color: $surface-2;
 		border-bottom: 3px solid $line;
 	}
 
@@ -52,83 +65,96 @@ const { perf } = useResumeData();
 		z-index: 2;
 	}
 
-	.landing-perf__title
+	.landing-perf__tape
 	{
-		margin: 18px 0 0;
-		font-size: 46px;
-		color: $text;
-
-		@include mq($tablet)
-		{
-			font-size: 92px;
-		}
+		top: 30px;
+		right: 8%;
+		width: 120px;
+		transform: rotate(6deg);
+		background-color: $olive;
 	}
 
-	.landing-perf__title-accent { color: $accent; }
+	.landing-perf__eyebrow
+	{
+		font-size: 0.8rem;
+		font-weight: 700;
+		letter-spacing: 2px;
+		text-transform: uppercase;
+		color: $accent-2;
+	}
+
+	.landing-perf__title
+	{
+		margin-top: 8px;
+		font-size: clamp(2.25rem, 7vw, 5rem);
+		@include misprint();
+	}
+
+	.landing-perf__title-accent
+	{
+		color: $accent;
+		display: inline-block;
+		transform: rotate(-1.5deg);
+	}
 
 	.landing-perf__blurb
 	{
-		max-width: 620px;
-		margin: 22px 0 0;
-		font-size: 17px;
-		font-weight: 600;
+		max-width: 62ch;
+		margin: 18px 0 0;
+		font-size: 1rem;
+		font-weight: 700;
 		color: $text;
-
-		@include mq($tablet)
-		{
-			font-size: 20px;
-		}
 	}
 
 	.landing-perf__list
 	{
 		display: grid;
-		gap: 12px;
-		margin: 36px 0 0;
+		gap: 10px;
+		margin: 32px 0 0;
 		padding: 0;
 		list-style: none;
 
 		@include mq($tablet)
 		{
-			grid-template-columns: repeat(2, 1fr);
+			grid-template-columns: 1fr 1fr;
 		}
 	}
 
 	.landing-perf__item
 	{
 		display: flex;
-		gap: 12px;
+		gap: 10px;
 		align-items: flex-start;
-		padding: 15px 17px;
-		font-weight: 600;
-		color: $text;
+		padding: 14px 16px;
+		font-size: 0.95rem;
 		background-color: $surface;
 		border: 2px solid $line;
 		box-shadow: 4px 4px 0 $shadow;
+
+		&:nth-child(odd) { transform: rotate(-0.5deg); }
+		&:nth-child(even) { transform: rotate(0.5deg); }
 	}
 
-	.landing-perf__item-icon
+	.landing-perf__mark
 	{
 		flex-shrink: 0;
-		width: 20px;
-		height: 20px;
-		margin-top: 2px;
-		color: $accent;
+		font-weight: 700;
+		color: $accent-2;
 	}
 
 	.landing-perf__sound
 	{
 		position: absolute;
-		left: -6px;
-		top: 20px;
-		font-size: 70px;
+		left: -8px;
+		top: 16px;
+		z-index: 1;
+		font-size: clamp(2.5rem, 12vw, 8.5rem);
 
 		@include mq($tablet)
 		{
-			font-size: 130px;
 			left: auto;
-			right: 4%;
-			top: 36px;
+			right: 3%;
+			top: 40px;
 		}
 	}
 </style>
