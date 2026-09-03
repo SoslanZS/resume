@@ -19,7 +19,6 @@ const tagLabel = {
 	<article
 		class="landing-project-card"
 		:class="`landing-project-card--${project.tag}`"
-		data-reveal
 	>
 		<div class="landing-project-card__head">
 			<span class="landing-project-card__stamp">{{ tagLabel[project.tag] }}</span>
