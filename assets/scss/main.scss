@@ -1,0 +1,8 @@
+// helpers (_variables.scss + _mixins.scss) injected globally via nuxt.config additionalData
+
+@import "base/normalize";
+@import "base/typography";
+@import "base/global";
+
+@import "helpers/variables-tailwind";
+@import "vendors/tailwind";

@@ -1,0 +1,35 @@
+@mixin mq($from, $to: false) {
+    @if $to {
+        @media (min-width: ($from + 0px)) and (max-width: ($to + 0px)) {
+            @content;
+        }
+    }
+
+    @else {
+        @media (min-width: ($from + 0px)) {
+            @content;
+        }
+    }
+}
+
+@mixin transition() {
+    transition: .2s ease;
+}
+
+// Ben-Day / halftone dot texture as a layered background
+@mixin halftone($color: rgba(0, 0, 0, .28), $size: 14px) {
+    background-image: radial-gradient($color 1.6px, transparent 1.7px);
+    background-size: $size $size;
+}
+
+// Comic panel: thick black border + hard offset shadow
+@mixin panel($bg: #12121f, $shadow: 10px 10px 0) {
+    background-color: $bg;
+    border: 4px solid #0a0a12;
+    box-shadow: $shadow #0a0a12;
+}
+
+// Chromatic aberration / RGB split on text
+@mixin glitch-text($m: #ff2e88, $c: #17e6f0) {
+    text-shadow: 3px 0 0 $m, -3px 0 0 $c;
+}
