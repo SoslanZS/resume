@@ -46,7 +46,7 @@ const copyEmail = async () =>
 				class="landing-contact__text"
 				data-reveal
 			>
-				Vue 3 / Nuxt, Bitrix и оптимизация PageSpeed. Пишите — без прелюдий.
+				Vue 3 / Nuxt и оптимизация PageSpeed. Пишите — без прелюдий.
 			</p>
 
 			<div

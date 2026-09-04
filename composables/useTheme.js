@@ -6,7 +6,7 @@
  */
 export const useTheme = () =>
 {
-	const theme = useState('theme', () => 'light');
+	const theme = useState('theme', () => 'dark');
 
 	const apply = (value) =>
 	{

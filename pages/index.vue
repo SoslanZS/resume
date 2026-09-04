@@ -2,7 +2,7 @@
 // variables
 const { person } = useResumeData();
 
-const description = 'Сослан Болотаев — frontend-разработчик. Vue 3 / Nuxt, Bitrix, оптимизация PageSpeed и Core Web Vitals. Резюме и проекты.';
+const description = 'Сослан Болотаев — frontend-разработчик. Vue 3 / Nuxt, оптимизация PageSpeed и Core Web Vitals. Резюме и проекты.';
 
 useReveal();
 

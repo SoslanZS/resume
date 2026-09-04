@@ -1,33 +1,8 @@
 // ── Grunge / zine colour system ─────────────────────────────────
 // 90s alt-rock: faded black, dirty yellow, muted red, off-white paper.
-// Full light + dark. Dark is toggled via the `.dark` class on <html>
-// (same switch Tailwind/shadcn use), `.light` forces light.
+// Dark is the default; `.light` on <html> forces the paper theme.
 
 :root
-{
-	color-scheme: light;
-
-	--c-bg        : #e9e1d4; // off-white paper
-	--c-surface   : #f2ede2;
-	--c-surface-2 : #ded4c2;
-	--c-line      : #2e2e2e; // faded black ink
-	--c-text      : #2e2e2e;
-	--c-text-dim  : #6a6459;
-
-	--c-accent     : #9a8c2f; // dirty yellow, darkened for paper contrast
-	--c-accent-ink : #e9e1d4;
-	--c-accent-2   : #8c2727; // muted red
-	--c-accent-3   : #a84700; // burnt orange
-	--c-olive      : #55711b;
-	--c-denim      : #33507f;
-
-	--c-shadow   : rgba(46, 46, 46, .28);
-	--c-hairline : rgba(46, 46, 46, .22);
-	--c-dots     : rgba(46, 46, 46, .10);
-	--c-grain    : .10;
-}
-
-@mixin dark-tokens
 {
 	color-scheme: dark;
 
@@ -51,15 +26,26 @@
 	--c-grain    : .14;
 }
 
-@media (prefers-color-scheme: dark)
+:root.light
 {
-	:root:not(.light)
-	{
-		@include dark-tokens;
-	}
-}
+	color-scheme: light;
 
-:root.dark
-{
-	@include dark-tokens;
+	--c-bg        : #e9e1d4; // off-white paper
+	--c-surface   : #f2ede2;
+	--c-surface-2 : #ded4c2;
+	--c-line      : #2e2e2e; // faded black ink
+	--c-text      : #2e2e2e;
+	--c-text-dim  : #6a6459;
+
+	--c-accent     : #9a8c2f; // dirty yellow, darkened for paper contrast
+	--c-accent-ink : #e9e1d4;
+	--c-accent-2   : #8c2727; // muted red
+	--c-accent-3   : #a84700; // burnt orange
+	--c-olive      : #55711b;
+	--c-denim      : #33507f;
+
+	--c-shadow   : rgba(46, 46, 46, .28);
+	--c-hairline : rgba(46, 46, 46, .22);
+	--c-dots     : rgba(46, 46, 46, .10);
+	--c-grain    : .10;
 }

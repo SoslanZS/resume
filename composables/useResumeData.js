@@ -11,7 +11,7 @@ export const useResumeData = () =>
 		telegram: { handle: '@SoslanZS', url: 'https://t.me/SoslanZS' },
 		whatsapp: { handle: '@SoslanZS', url: 'https://wa.me/SoslanZS' },
 		since: 2023,
-		pitch: 'Собираю быстрые интерфейсы на Vue 3 / Nuxt и Bitrix. Отдельно — оптимизация PageSpeed и Core Web Vitals.',
+		pitch: 'Собираю быстрые интерфейсы на Vue 3 / Nuxt. Отдельно — оптимизация PageSpeed и Core Web Vitals.',
 	};
 
 	const skills = [
@@ -50,7 +50,7 @@ export const useResumeData = () =>
 			title: 'lineaflex',
 			role: 'Разработал с нуля',
 			tag: 'lead',
-			stack: ['Nuxt', 'Bitrix', 'SCSS'],
+			stack: ['Nuxt', 'SCSS', 'SEO'],
 			sound: 'THWIP!',
 			summary: 'Интернет-магазин матрасов и товаров для сна. Весь фронтенд с нуля.',
 			bullets: [
@@ -65,7 +65,7 @@ export const useResumeData = () =>
 			title: 'zvet',
 			role: 'Ведущий на поддержке и развитии',
 			tag: 'lead',
-			stack: ['Bitrix', 'Gulp', 'SCSS', 'Vue'],
+			stack: ['Gulp', 'SCSS', 'jQuery', 'Vue'],
 			sound: 'BAM!',
 			summary: 'Крупный интернет-магазин зоотоваров. Новые фичи и оптимизация по PageSpeed.',
 			bullets: [
@@ -138,7 +138,7 @@ export const useResumeData = () =>
 			title: 'd8capital',
 			role: 'Поддержка и новые функции',
 			tag: 'support',
-			stack: ['Bitrix', 'Vite', 'PostCSS'],
+			stack: ['Vite', 'PostCSS', 'SCSS'],
 			sound: 'BAM!',
 			summary: 'Сайт инвестиционной компании.',
 			bullets: [

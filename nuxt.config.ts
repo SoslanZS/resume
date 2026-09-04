@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 			script: [
 				{
 					// ставим тему до первой отрисовки, чтобы не было мигания
-					innerHTML: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t=window.matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light';}document.documentElement.classList.add(t);}catch(e){}})();`,
+					innerHTML: `(function(){try{var t=localStorage.getItem('theme');if(t!=='light'&&t!=='dark'){t='dark';}document.documentElement.classList.add(t);}catch(e){document.documentElement.classList.add('dark');}})();`,
 					tagPosition: 'head',
 				},
 			],

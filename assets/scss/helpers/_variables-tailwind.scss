@@ -1,43 +1,11 @@
 // shadcn / Tailwind design tokens remapped onto the grunge palette,
 // so <UiButton>, <UiToast>, `bg-background`, `border-border` etc. match.
+// Dark is the default; `.light` on <html> forces the paper theme.
 
 :root {
   --color-white: #ffffff;
   --color-black: #000000;
 
-  --background: 37 32% 87%;
-  --foreground: 0 0% 18%;
-
-  --muted: 39 30% 82%;
-  --muted-foreground: 39 9% 38%;
-
-  --popover: 41 38% 92%;
-  --popover-foreground: 0 0% 18%;
-
-  --card: 41 38% 92%;
-  --card-foreground: 0 0% 18%;
-
-  --border: 0 0% 18%;
-  --input: 0 0% 18%;
-
-  --primary: 0 56% 35%;
-  --primary-foreground: 37 32% 87%;
-
-  --secondary: 39 30% 82%;
-  --secondary-foreground: 0 0% 18%;
-
-  --accent: 52 53% 39%;
-  --accent-foreground: 37 32% 87%;
-
-  --destructive: 0 56% 35%;
-  --destructive-foreground: 37 32% 87%;
-
-  --ring: 52 53% 39%;
-
-  --radius: 0px;
-}
-
-@mixin shadcn-dark {
   --background: 0 0% 18%;
   --foreground: 37 32% 87%;
 
@@ -66,10 +34,37 @@
   --destructive-foreground: 37 32% 87%;
 
   --ring: 52 47% 48%;
+
+  --radius: 0px;
 }
 
-.dark { @include shadcn-dark; }
+:root.light {
+  --background: 37 32% 87%;
+  --foreground: 0 0% 18%;
 
-@media (prefers-color-scheme: dark) {
-  :root:not(.light) { @include shadcn-dark; }
+  --muted: 39 30% 82%;
+  --muted-foreground: 39 9% 38%;
+
+  --popover: 41 38% 92%;
+  --popover-foreground: 0 0% 18%;
+
+  --card: 41 38% 92%;
+  --card-foreground: 0 0% 18%;
+
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+
+  --primary: 0 56% 35%;
+  --primary-foreground: 37 32% 87%;
+
+  --secondary: 39 30% 82%;
+  --secondary-foreground: 0 0% 18%;
+
+  --accent: 52 53% 39%;
+  --accent-foreground: 37 32% 87%;
+
+  --destructive: 0 56% 35%;
+  --destructive-foreground: 37 32% 87%;
+
+  --ring: 52 53% 39%;
 }

@@ -5,9 +5,9 @@ const { person, projects } = useResumeData();
 const leadCount = projects.filter(p => p.tag === 'lead' || p.tag === 'landing').length;
 
 const stats = [
-	{ value: projects.length, label: 'рабочих проекта' },
+	{ value: projects.length, label: 'рабочих проектов' },
 	{ value: `${new Date().getFullYear() - person.since}+`, label: 'года в коммерции' },
-	{ value: leadCount, label: 'проекта как ведущий' },
+	{ value: leadCount, label: 'проектов как ведущий' },
 ];
 </script>
 
@@ -35,7 +35,7 @@ const stats = [
 
 			<div class="landing-hero__body">
 				<p class="landing-hero__kicker">
-					резюме — не отфильтровано
+					Открыт к предложениям
 				</p>
 
 				<h1 class="landing-hero__title">
