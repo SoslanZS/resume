@@ -2,6 +2,9 @@
 export default defineNuxtConfig({
 	compatibilityDate: '2024-04-03',
 	devtools: { enabled: true },
+	nitro: {
+		preset: 'github-pages',
+	},
 	css: ['reset-css/reset.css', '~/assets/scss/main.scss'],
 	app: {
 		head: {
